@@ -1,5 +1,6 @@
 package org.example.librarymanagementsystembackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,11 +18,12 @@ public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
-    private int categoryId;
+    private Integer categoryId;
 
     @Column(name = "category")
     private String category;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     private List<Books> books;
 }

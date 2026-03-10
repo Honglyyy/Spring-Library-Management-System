@@ -1,5 +1,6 @@
 package org.example.librarymanagementsystembackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -16,11 +17,12 @@ public class Authors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "author_id")
-    private int authorId;
+    private Integer authorId;
 
     @Column(name = "author_name")
     private String authorName;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "authors")
     private List<Books> books;
 }

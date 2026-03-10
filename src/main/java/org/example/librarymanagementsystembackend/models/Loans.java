@@ -19,7 +19,7 @@ public class Loans {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "loan_id")
-    private int loanId;
+    private Integer loanId;
 
     @Column(name = "loan_date")
     private LocalDateTime loanDate;

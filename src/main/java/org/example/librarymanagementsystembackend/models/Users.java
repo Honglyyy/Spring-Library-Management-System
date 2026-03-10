@@ -1,5 +1,6 @@
 package org.example.librarymanagementsystembackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId;
+    private Integer userId;
 
     @Column(name = "username")
     private String username;
@@ -30,9 +31,11 @@ public class Users {
     private Roles role;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Reservations> reservations;
 
 }

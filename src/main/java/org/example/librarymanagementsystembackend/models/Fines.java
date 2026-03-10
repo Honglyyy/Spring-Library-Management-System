@@ -18,7 +18,7 @@ public class Fines {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fine_id")
-    private int fineId;
+    private Integer fineId;
 
     @Column(name = "overdue_date")
     private LocalDateTime overdueDate;
