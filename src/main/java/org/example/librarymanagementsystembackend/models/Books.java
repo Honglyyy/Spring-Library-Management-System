@@ -1,5 +1,6 @@
 package org.example.librarymanagementsystembackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -57,11 +58,14 @@ public class Books {
     private List<Categories> categories;
 
     @OneToMany(mappedBy = "book")
+    @JsonIgnore
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "book")
+    @JsonIgnore
     private List<Reservations> reservations;
 
     @ManyToMany(mappedBy = "books")
+    @JsonIgnore
     private List<Loans> loans;
 }
